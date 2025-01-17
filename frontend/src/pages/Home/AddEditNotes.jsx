@@ -10,14 +10,13 @@ const AddEditNotes = ({ onClose, noteData, type, getAllNotes }) => {
   const [tags, setTags] = useState(noteData?.tags || [])
   const [error, setError] = useState(null)
 
-  //   Edit Note
   const editNote = async () => {
     const noteId = noteData._id
     console.log(noteId)
 
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/note/edit/" + noteId,
+        "https://notes-app-gilt-eight.vercel.app/api/note/edit/" + noteId,
         { title, content, tags },
         { withCredentials: true }
       )
@@ -41,11 +40,10 @@ const AddEditNotes = ({ onClose, noteData, type, getAllNotes }) => {
     }
   }
 
-  //   Add Note
   const addNewNote = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/note/add",
+        "https://notes-app-gilt-eight.vercel.app/api/note/add",
         { title, content, tags },
         { withCredentials: true }
       )
