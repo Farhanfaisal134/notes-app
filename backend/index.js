@@ -17,23 +17,25 @@ mongoose
 
 const app = express()
 
-// to make input as json
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors({ origin: ["http://localhost:5173"], credentials: true }))
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL || "*",
+    credentials: true,
+  })
+);
 
-app.listen(3000, () => {
-  console.log("Server is running on port 3000")
-})
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
 
-// import routes
 import authRouter from "./routes/auth.route.js"
 import noteRouter from "./routes/note.route.js"
 
 app.use("/api/auth", authRouter)
 app.use("/api/note", noteRouter)
 
-// error handling
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500
   const message = err.message || "Internal Serer Error"
@@ -43,4 +45,8 @@ app.use((err, req, res, next) => {
     statusCode,
     message,
   })
+})
+
+app.listen(3000, () => {
+  console.log("Server is running on port 3000")
 })
