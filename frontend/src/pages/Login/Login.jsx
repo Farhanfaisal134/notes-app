@@ -34,13 +34,11 @@ const Login = () => {
 
     setError("")
 
-    // Login API
-
     try {
       dispatch(signInStart())
 
       const res = await axios.post(
-        "http://localhost:3000/api/auth/signin",
+        "https://notes-app-gilt-eight.vercel.app/api/auth/signin",
         { email, password },
         { withCredentials: true }
       )

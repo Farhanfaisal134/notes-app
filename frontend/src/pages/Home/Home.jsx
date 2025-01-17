@@ -14,13 +14,10 @@ const Home = () => {
   const { currentUser, loading, errorDispatch } = useSelector(
     (state) => state.user
   )
-
   const [userInfo, setUserInfo] = useState(null)
   const [allNotes, setAllNotes] = useState([])
 
   const [isSearch, setIsSearch] = useState(false)
-
-  // console.log(allNotes)
 
   const navigate = useNavigate()
 
@@ -39,10 +36,9 @@ const Home = () => {
     }
   }, [])
 
-  // get all notes
   const getAllNotes = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/note/all", {
+      const res = await axios.get("https://notes-app-gilt-eight.vercel.app/api/note/all", {
         withCredentials: true,
       })
 
@@ -50,9 +46,6 @@ const Home = () => {
         console.log(res.data)
         return
       }
-
-      // console.log(res.data)
-
       setAllNotes(res.data.notes)
     } catch (error) {
       console.log(error)
@@ -63,13 +56,12 @@ const Home = () => {
     setOpenAddEditModal({ isShown: true, data: noteDetails, type: "edit" })
   }
 
-  // Delete Note
   const deleteNote = async (data) => {
     const noteId = data._id
 
     try {
       const res = await axios.delete(
-        "http://localhost:3000/api/note/delete/" + noteId,
+        "https://notes-app-gilt-eight.vercel.app/api/note/delete/" + noteId,
         { withCredentials: true }
       )
 
@@ -87,7 +79,7 @@ const Home = () => {
 
   const onSearchNote = async (query) => {
     try {
-      const res = await axios.get("http://localhost:3000/api/note/search", {
+      const res = await axios.get("https://notes-app-gilt-eight.vercel.app/api/note/search", {
         params: { query },
         withCredentials: true,
       })
@@ -115,7 +107,7 @@ const Home = () => {
 
     try {
       const res = await axios.put(
-        "http://localhost:3000/api/note/update-note-pinned/" + noteId,
+        "https://notes-app-gilt-eight.vercel.app/api/note/update-note-pinned/" + noteId,
         { isPinned: !noteData.isPinned },
         { withCredentials: true }
       )
