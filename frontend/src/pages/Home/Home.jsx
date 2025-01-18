@@ -10,7 +10,7 @@ import axios from "axios"
 import { toast } from "react-toastify"
 import EmptyCard from "../../components/EmptyCard/EmptyCard"
 
-export const BASE_URL = "https://simple-crud-in-mern.vercel.app/api";
+export const BASE_URL = "https://notes-app-henna-xi.vercel.app/api";
 
 const Home = () => {
   const { currentUser, loading, errorDispatch } = useSelector(
