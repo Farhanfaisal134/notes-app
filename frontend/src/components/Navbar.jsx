@@ -10,6 +10,7 @@ import {
   signoutStart,
 } from "../redux/user/userSlice"
 import axios from "axios"
+import { BASE_URL } from "../pages/Home/Home"
 
 const Navbar = ({ userInfo, onSearchNote, handleClearSearch }) => {
   const [searchQuery, setSearchQuery] = useState("")
@@ -32,7 +33,7 @@ const Navbar = ({ userInfo, onSearchNote, handleClearSearch }) => {
     try {
       dispatch(signoutStart())
 
-      const res = await axios.get("https://notes-app-henna-xi.vercel.app/api/auth/signout", {
+      const res = await axios.get(`${BASE_URL}/auth/signout`, {
         withCredentials: true,
       })
       if (res.data.success === false) {

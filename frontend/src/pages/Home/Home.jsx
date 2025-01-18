@@ -10,6 +10,8 @@ import axios from "axios"
 import { toast } from "react-toastify"
 import EmptyCard from "../../components/EmptyCard/EmptyCard"
 
+export const BASE_URL = "https://simple-crud-in-mern.vercel.app/api";
+
 const Home = () => {
   const { currentUser, loading, errorDispatch } = useSelector(
     (state) => state.user
@@ -38,7 +40,7 @@ const Home = () => {
 
   const getAllNotes = async () => {
     try {
-      const res = await axios.get("https://notes-app-henna-xi.vercel.app/api/note/all", {
+      const res = await axios.get(`${BASE_URL}/note/all`, {
         withCredentials: true,
       })
 
@@ -61,9 +63,9 @@ const Home = () => {
 
     try {
       const res = await axios.delete(
-        "https://notes-app-henna-xi.vercel.app/api/note/delete/" + noteId,
+        `${BASE_URL}/note/delete/${noteId}`,
         { withCredentials: true }
-      )
+      );
 
       if (res.data.success === false) {
         toast.error(res.data.message)
@@ -79,7 +81,7 @@ const Home = () => {
 
   const onSearchNote = async (query) => {
     try {
-      const res = await axios.get("https://notes-app-henna-xi.vercel.app/api/note/search", {
+      const res = await axios.get(`${BASE_URL}/note/search`, {
         params: { query },
         withCredentials: true,
       })
@@ -107,7 +109,7 @@ const Home = () => {
 
     try {
       const res = await axios.put(
-        "https://notes-app-henna-xi.vercel.app/api/note/update-note-pinned/" + noteId,
+        `${BASE_URL}/note/update-note-pinned/${noteId}`,
         { isPinned: !noteData.isPinned },
         { withCredentials: true }
       )

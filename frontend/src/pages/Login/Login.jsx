@@ -10,6 +10,7 @@ import {
 } from "../../redux/user/userSlice"
 import axios from "axios"
 import { toast } from "react-toastify"
+import { BASE_URL } from "../Home/Home"
 
 const Login = () => {
   const [email, setEmail] = useState("")
@@ -38,7 +39,7 @@ const Login = () => {
       dispatch(signInStart())
 
       const res = await axios.post(
-        "https://notes-app-henna-xi.vercel.app/api/auth/signin",
+        `${BASE_URL}/auth/signin`,
         { email, password },
         { withCredentials: true }
       )

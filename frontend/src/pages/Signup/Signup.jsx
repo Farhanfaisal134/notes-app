@@ -35,7 +35,7 @@ const Signup = () => {
 
     try {
       const res = await axios.post(
-        "https://notes-app-henna-xi.vercel.app/api/auth/signup",
+        `${BASE_URL}/auth/signup`,
         { username: name, email, password },
         { withCredentials: true }
       )

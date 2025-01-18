@@ -3,6 +3,7 @@ import { MdClose } from "react-icons/md"
 import TagInput from "../../components/Input/TagInput "
 import axios from "axios"
 import { toast } from "react-toastify"
+import { BASE_URL } from "./Home"
 
 const AddEditNotes = ({ onClose, noteData, type, getAllNotes }) => {
   const [title, setTitle] = useState(noteData?.title || "")
@@ -16,7 +17,7 @@ const AddEditNotes = ({ onClose, noteData, type, getAllNotes }) => {
 
     try {
       const res = await axios.post(
-        "https://notes-app-henna-xi.vercel.app/api/note/edit/" + noteId,
+        `${BASE_URL}/note/edit/${noteId}`,
         { title, content, tags },
         { withCredentials: true }
       )
@@ -43,7 +44,7 @@ const AddEditNotes = ({ onClose, noteData, type, getAllNotes }) => {
   const addNewNote = async () => {
     try {
       const res = await axios.post(
-        "https://notes-app-henna-xi.vercel.app/api/note/add",
+        `${BASE_URL}/note/add`,
         { title, content, tags },
         { withCredentials: true }
       )
