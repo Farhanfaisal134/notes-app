@@ -38,7 +38,7 @@ const Login = () => {
       dispatch(signInStart())
 
       const res = await axios.post(
-        "https://notes-app-gilt-eight.vercel.app/api/auth/signin",
+        "https://notes-app-henna-xi.vercel.app/api/auth/signin",
         { email, password },
         { withCredentials: true }
       )

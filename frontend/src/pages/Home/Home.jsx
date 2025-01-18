@@ -38,7 +38,7 @@ const Home = () => {
 
   const getAllNotes = async () => {
     try {
-      const res = await axios.get("https://notes-app-gilt-eight.vercel.app/api/note/all", {
+      const res = await axios.get("https://notes-app-henna-xi.vercel.app/api/note/all", {
         withCredentials: true,
       })
 
@@ -61,7 +61,7 @@ const Home = () => {
 
     try {
       const res = await axios.delete(
-        "https://notes-app-gilt-eight.vercel.app/api/note/delete/" + noteId,
+        "https://notes-app-henna-xi.vercel.app/api/note/delete/" + noteId,
         { withCredentials: true }
       )
 
@@ -79,7 +79,7 @@ const Home = () => {
 
   const onSearchNote = async (query) => {
     try {
-      const res = await axios.get("https://notes-app-gilt-eight.vercel.app/api/note/search", {
+      const res = await axios.get("https://notes-app-henna-xi.vercel.app/api/note/search", {
         params: { query },
         withCredentials: true,
       })
@@ -107,7 +107,7 @@ const Home = () => {
 
     try {
       const res = await axios.put(
-        "https://notes-app-gilt-eight.vercel.app/api/note/update-note-pinned/" + noteId,
+        "https://notes-app-henna-xi.vercel.app/api/note/update-note-pinned/" + noteId,
         { isPinned: !noteData.isPinned },
         { withCredentials: true }
       )
@@ -183,7 +183,7 @@ const Home = () => {
 
       <Modal
         isOpen={openAddEditModal.isShown}
-        onRequestClose={() => {}}
+        onRequestClose={() => { }}
         style={{
           overlay: {
             backgroundColor: "rgba(0,0,0,0.2)",

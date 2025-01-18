@@ -32,10 +32,9 @@ const Navbar = ({ userInfo, onSearchNote, handleClearSearch }) => {
     try {
       dispatch(signoutStart())
 
-      const res = await axios.get("https://notes-app-gilt-eight.vercel.app/api/auth/signout", {
+      const res = await axios.get("https://notes-app-henna-xi.vercel.app/api/auth/signout", {
         withCredentials: true,
       })
-
       if (res.data.success === false) {
         dispatch(signoutFailure(res.data.message))
         toast.error(res.data.message)
