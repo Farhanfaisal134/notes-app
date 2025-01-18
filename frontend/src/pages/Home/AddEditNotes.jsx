@@ -17,7 +17,7 @@ const AddEditNotes = ({ onClose, noteData, type, getAllNotes }) => {
 
     try {
       const res = await axios.post(
-        `${BASE_URL}/note/edit/${noteId}`,
+        `${BASE_URL}/api/note/edit/${noteId}`,
         { title, content, tags },
         { withCredentials: true }
       )
@@ -44,7 +44,7 @@ const AddEditNotes = ({ onClose, noteData, type, getAllNotes }) => {
   const addNewNote = async () => {
     try {
       const res = await axios.post(
-        `${BASE_URL}/note/add`,
+        `${BASE_URL}/api/note/add`,
         { title, content, tags },
         { withCredentials: true }
       )

@@ -33,7 +33,7 @@ const Navbar = ({ userInfo, onSearchNote, handleClearSearch }) => {
     try {
       dispatch(signoutStart())
 
-      const res = await axios.get(`${BASE_URL}/auth/signout`, {
+      const res = await axios.get(`${BASE_URL}/api/auth/signout`, {
         withCredentials: true,
       })
       if (res.data.success === false) {

@@ -39,7 +39,7 @@ const Login = () => {
       dispatch(signInStart())
 
       const res = await axios.post(
-        `${BASE_URL}/auth/signin`,
+        `${BASE_URL}/api/auth/signin`,
         { email, password },
         { withCredentials: true }
       )
