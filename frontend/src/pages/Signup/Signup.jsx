@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { validateEmail } from "../../utils/helper"
 import axios from "axios"
 import { toast } from "react-toastify"
+import { BASE_URL } from "../Home/Home"
 
 const Signup = () => {
   const [name, setName] = useState("")
